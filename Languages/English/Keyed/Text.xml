@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<ShowWeaponRangeKeyTitle>Show Weapon Range Hotkey</ShowWeaponRangeKeyTitle>
+	<ShowWeaponRangeKeyExplained>To show the weapon range, select the colonist, then press this hotkey. If you double-press the key the range will be shown until you press the key again.</ShowWeaponRangeKeyExplained>
+
+	<ModKeyOptionNone>Disabled</ModKeyOptionNone>
+	<ModKeyOptionAlt>Alt</ModKeyOptionAlt>
+	<ModKeyOptionCtrl>Ctrl</ModKeyOptionCtrl>
+	<ModKeyOptionShift>Shift</ModKeyOptionShift>
+	<ModKeyOptionMeta>Win/Cmd</ModKeyOptionMeta>
+
+</LanguageData>
