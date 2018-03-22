@@ -17,12 +17,19 @@ namespace RangeFinder
 			return controller;
 		}
 
+		public void Reset()
+		{
+			observedPawns = new HashSet<ObservedPawn>();
+		}
+
 		public void HandleDrawing()
 		{
+			var currentMap = Find.VisibleMap;
 			observedPawns
-				.Do(observed =>
+				.Select(observed => observed.pawn)
+				.Where(pawn => pawn.Map == currentMap && pawn.Spawned && pawn.Dead == false && pawn.Downed == false)
+				.Do(pawn =>
 				{
-					var pawn = observed.pawn;
 					var verb = pawn.equipment?.PrimaryEq?.PrimaryVerb;
 					if (verb != null && verb.verbProps.MeleeRange == false)
 					{

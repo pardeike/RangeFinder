@@ -6,7 +6,6 @@ namespace RangeFinder
 	{
 		public Pawn pawn;
 		public bool locked;
-		public float lockedTime;
 
 		public ObservedPawn(Pawn forPawn, bool locked)
 		{

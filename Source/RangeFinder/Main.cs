@@ -29,6 +29,18 @@ namespace RangeFinder
 		}
 	}
 
+	// initialize on map load
+	//
+	[HarmonyPatch(typeof(Map))]
+	[HarmonyPatch("FinalizeLoading")]
+	static class Map_FinalizeLoading_Patch
+	{
+		static void Postfix()
+		{
+			Controller.getInstance().Reset();
+		}
+	}
+
 	// handle events early
 	//
 	[HarmonyPatch(typeof(MainTabsRoot))]
