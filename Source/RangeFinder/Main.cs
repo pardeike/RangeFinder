@@ -37,7 +37,7 @@ namespace RangeFinder
 	{
 		static void Postfix()
 		{
-			Controller.getInstance().Reset();
+			Controller.Instance().Reset();
 		}
 	}
 
@@ -49,7 +49,7 @@ namespace RangeFinder
 	{
 		static void Prefix()
 		{
-			Controller.getInstance().HandleEvents();
+			Controller.Instance().HandleEvents();
 		}
 	}
 
@@ -61,7 +61,7 @@ namespace RangeFinder
 	{
 		static void Prefix()
 		{
-			Controller.getInstance().HandleDrawing();
+			Controller.Instance().HandleDrawing();
 		}
 	}
 }

@@ -3,6 +3,8 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 using System;
+using RimWorld;
+using Verse.AI;
 
 namespace RangeFinder
 {
@@ -34,6 +36,18 @@ namespace RangeFinder
 					if (pawn.Spawned == false || pawn.Downed) return false;
 					var verb = pawn.equipment?.PrimaryEq?.PrimaryVerb;
 					return (verb != null && verb.verbProps.MeleeRange == false);
+				})
+				.ToList();
+		}
+
+		public static List<IAttackTargetSearcher> GetSelectedTargetSearchers()
+		{
+			return Find.Selector.SelectedObjects.Where(obj => (obj as IAttackTargetSearcher) != null).Cast<IAttackTargetSearcher>()
+				.Where(targetSearcher =>
+				{
+					if (targetSearcher.Thing == null || targetSearcher.Thing.Spawned == false) return false;
+					var verb = targetSearcher.CurrentEffectiveVerb;
+					return (verb != null);
 				})
 				.ToList();
 		}
