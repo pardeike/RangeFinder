@@ -35,7 +35,7 @@ namespace RangeFinder
 				{
 					if (pawn.Spawned == false || pawn.Downed) return false;
 					var verb = pawn.equipment?.PrimaryEq?.PrimaryVerb;
-					return (verb != null && verb.verbProps.MeleeRange == false);
+					return (verb != null && verb.verbProps.IsMeleeAttack == false);
 				})
 				.ToList();
 		}

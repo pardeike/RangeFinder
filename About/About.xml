@@ -3,7 +3,7 @@
 	<name>Range Finder</name>
 	<author>Andreas Pardeike</author>
 	<url>https://ludeon.com/forums/index.php?topic=39436.0</url>
-	<targetVersion>0.18.0</targetVersion>
+	<targetVersion>1.0.0</targetVersion>
 	<description>Constantly checking the shooting range of your colonists/turrets? Range Finder makes it easy.
 
 Just select one or more colonists/turrets and press the hotkey (Ctrl by default). When you quickly press the key twice the range will be shown until you press the key later again.

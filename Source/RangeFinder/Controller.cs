@@ -26,7 +26,7 @@ namespace RangeFinder
 
 		public void HandleDrawing()
 		{
-			var currentMap = Find.VisibleMap;
+			var currentMap = Find.CurrentMap;
 
 			observedPawns
 				.Select(observed => observed.pawn)
@@ -34,7 +34,7 @@ namespace RangeFinder
 				.Do(pawn =>
 				{
 					var verb = pawn.equipment?.PrimaryEq?.PrimaryVerb;
-					if (verb != null && verb.verbProps.MeleeRange == false)
+					if (verb != null && verb.verbProps.IsMeleeAttack == false)
 					{
 						var range = verb.verbProps.range;
 						if (range < 90f)
