@@ -14,13 +14,13 @@ namespace RangeFinder
 		{
 			switch (RangeFinder.Settings.showWeaponRangeKey)
 			{
-				case ModKey.Alt:
+				case RangeFinderModKey.Alt:
 					return keyCode == KeyCode.LeftAlt || keyCode == KeyCode.RightAlt;
-				case ModKey.Ctrl:
+				case RangeFinderModKey.Ctrl:
 					return keyCode == KeyCode.LeftControl || keyCode == KeyCode.RightControl;
-				case ModKey.Shift:
+				case RangeFinderModKey.Shift:
 					return keyCode == KeyCode.LeftShift || keyCode == KeyCode.RightShift;
-				case ModKey.Meta:
+				case RangeFinderModKey.Meta:
 					return keyCode == KeyCode.LeftWindows || keyCode == KeyCode.RightWindows
 						|| keyCode == KeyCode.LeftCommand || keyCode == KeyCode.RightCommand
 						|| keyCode == KeyCode.LeftApple || keyCode == KeyCode.RightApple;

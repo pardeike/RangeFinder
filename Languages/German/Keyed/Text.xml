@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
 
-	<ShowWeaponRangeKeyTitle>Show Weapon Range Hotkey</ShowWeaponRangeKeyTitle>
-	<ShowWeaponRangeKeyExplained>To show the weapon range, select the colonist, then press this hotkey. If you double-press the key the range will be shown until you press the key again.</ShowWeaponRangeKeyExplained>
+	<ShowWeaponRangeKeyTitle>Zeige Waffenreichweite Hotkey</ShowWeaponRangeKeyTitle>
+	<ShowWeaponRangeKeyExplained>Um die Waffenreichweite anzuzeigen, waehle einen Kolonisten und druecke den Hotkey. Wird der Hotkey schnell zweimal hintereinander gedrueckt, wird die Waffenreichweite dauerhaft angezeigt bis der Hotkey erneut gedrueckt wird.</ShowWeaponRangeKeyExplained>
 
 	<RangeFinderModKeyOptionNone>Disabled</RangeFinderModKeyOptionNone>
 	<RangeFinderModKeyOptionAlt>Alt</RangeFinderModKeyOptionAlt>

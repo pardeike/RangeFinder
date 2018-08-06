@@ -3,7 +3,7 @@ using Verse;
 
 namespace RangeFinder
 {
-	public enum ModKey
+	public enum RangeFinderModKey
 	{
 		None,
 		Alt,
@@ -14,12 +14,12 @@ namespace RangeFinder
 
 	public class RangeFinderSettings : ModSettings
 	{
-		public ModKey showWeaponRangeKey = ModKey.Ctrl;
+		public RangeFinderModKey showWeaponRangeKey = RangeFinderModKey.Ctrl;
 
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look(ref showWeaponRangeKey, "showWeaponRangeKey", ModKey.Ctrl, true);
+			Scribe_Values.Look(ref showWeaponRangeKey, "showWeaponRangeKey", RangeFinderModKey.Ctrl, true);
 		}
 
 		public void DoWindowContents(Rect canvas)
