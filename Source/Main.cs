@@ -1,8 +1,8 @@
-﻿using RimWorld;
+﻿using Harmony;
+using RimWorld;
+using System.Reflection;
 using UnityEngine;
 using Verse;
-using System.Reflection;
-using Harmony;
 
 namespace RangeFinder
 {
@@ -47,7 +47,7 @@ namespace RangeFinder
 	[HarmonyPatch("HandleLowPriorityShortcuts")]
 	static class MainTabsRoot_HandleLowPriorityShortcuts_Patch
 	{
-		static void Prefix()
+		static void Postfix()
 		{
 			Controller.Instance().HandleEvents();
 		}

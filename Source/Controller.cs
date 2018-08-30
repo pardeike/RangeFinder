@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Harmony;
+using System.Collections.Generic;
 using System.Linq;
-using Harmony;
 using UnityEngine;
 using Verse;
 
@@ -61,7 +61,7 @@ namespace RangeFinder
 		private float lastPressedTime;
 		public void HandleEvents()
 		{
-			if (Event.current.type == EventType.KeyDown && Tools.IsModKey(Event.current.keyCode))
+			if (Tools.IsModKeyDown())
 			{
 				if (isPressed)
 					return;
@@ -90,7 +90,7 @@ namespace RangeFinder
 				}
 			}
 
-			if (Event.current.type == EventType.KeyUp && Tools.IsModKey(Event.current.keyCode))
+			if (Tools.IsModKeyUp())
 			{
 				if (isPressed == false)
 					return;

@@ -1,29 +1,46 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Verse;
-using System;
-using RimWorld;
 using Verse.AI;
 
 namespace RangeFinder
 {
 	static class Tools
 	{
-		public static bool IsModKey(KeyCode keyCode)
+		public static bool IsModKeyDown()
 		{
 			switch (RangeFinder.Settings.showWeaponRangeKey)
 			{
 				case RangeFinderModKey.Alt:
-					return keyCode == KeyCode.LeftAlt || keyCode == KeyCode.RightAlt;
+					return Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt);
 				case RangeFinderModKey.Ctrl:
-					return keyCode == KeyCode.LeftControl || keyCode == KeyCode.RightControl;
+					return Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl);
 				case RangeFinderModKey.Shift:
-					return keyCode == KeyCode.LeftShift || keyCode == KeyCode.RightShift;
+					return Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift);
 				case RangeFinderModKey.Meta:
-					return keyCode == KeyCode.LeftWindows || keyCode == KeyCode.RightWindows
-						|| keyCode == KeyCode.LeftCommand || keyCode == KeyCode.RightCommand
-						|| keyCode == KeyCode.LeftApple || keyCode == KeyCode.RightApple;
+					return Input.GetKeyDown(KeyCode.LeftWindows) || Input.GetKeyDown(KeyCode.RightWindows)
+						|| Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.RightCommand)
+						|| Input.GetKeyDown(KeyCode.LeftApple) || Input.GetKeyDown(KeyCode.RightApple);
+			}
+			return false;
+		}
+
+		public static bool IsModKeyUp()
+		{
+			switch (RangeFinder.Settings.showWeaponRangeKey)
+			{
+				case RangeFinderModKey.Alt:
+					return Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt);
+				case RangeFinderModKey.Ctrl:
+					return Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.RightControl);
+				case RangeFinderModKey.Shift:
+					return Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift);
+				case RangeFinderModKey.Meta:
+					return Input.GetKeyUp(KeyCode.LeftWindows) || Input.GetKeyUp(KeyCode.RightWindows)
+						|| Input.GetKeyUp(KeyCode.LeftCommand) || Input.GetKeyUp(KeyCode.RightCommand)
+						|| Input.GetKeyUp(KeyCode.LeftApple) || Input.GetKeyUp(KeyCode.RightApple);
 			}
 			return false;
 		}
