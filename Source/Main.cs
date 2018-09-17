@@ -16,6 +16,7 @@ namespace RangeFinder
 
 			var harmony = HarmonyInstance.Create("net.pardeike.rimworld.mods.rangefinder");
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
+			FireStats.Trigger(true);
 		}
 
 		public override void DoSettingsWindowContents(Rect inRect)
@@ -38,6 +39,7 @@ namespace RangeFinder
 		static void Postfix()
 		{
 			Controller.Instance().Reset();
+			FireStats.Trigger(false);
 		}
 	}
 
