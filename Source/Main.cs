@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System.Reflection;
 using UnityEngine;
@@ -14,7 +14,7 @@ namespace RangeFinder
 		{
 			Settings = GetSettings<RangeFinderSettings>();
 
-			var harmony = HarmonyInstance.Create("net.pardeike.rimworld.mods.rangefinder");
+			var harmony = new Harmony("net.pardeike.rimworld.mods.rangefinder");
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
 		}
 
