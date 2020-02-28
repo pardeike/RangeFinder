@@ -20,7 +20,7 @@ namespace RangeFinder
 
 		public override void DoSettingsWindowContents(Rect inRect)
 		{
-			Settings.DoWindowContents(inRect);
+			RangeFinderSettings.DoWindowContents(inRect);
 		}
 
 		public override string SettingsCategory()
@@ -35,9 +35,9 @@ namespace RangeFinder
 	[HarmonyPatch("FinalizeLoading")]
 	static class Map_FinalizeLoading_Patch
 	{
-		static void Postfix()
+		public static void Postfix()
 		{
-			Controller.Instance().Reset();
+			Controller.Reset();
 			ModCounter.Trigger();
 		}
 	}
@@ -48,7 +48,7 @@ namespace RangeFinder
 	[HarmonyPatch("HandleLowPriorityShortcuts")]
 	static class MainTabsRoot_HandleLowPriorityShortcuts_Patch
 	{
-		static void Postfix()
+		public static void Postfix()
 		{
 			Controller.Instance().HandleEvents();
 		}
@@ -60,9 +60,9 @@ namespace RangeFinder
 	[HarmonyPatch("DrawSelectionOverlays")]
 	static class SelectionDrawer_DrawSelectionOverlays_Patch
 	{
-		static void Prefix()
+		public static void Prefix()
 		{
-			Controller.Instance().HandleDrawing();
+			Controller.HandleDrawing();
 		}
 	}
 }

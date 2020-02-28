@@ -18,13 +18,13 @@ namespace RangeFinder
 			return controller;
 		}
 
-		public void Reset()
+		public static void Reset()
 		{
 			observedPawns = new HashSet<ObservedPawn>();
 			observedTargetSearchers = new HashSet<ObservedTargetSearcher>();
 		}
 
-		public void HandleDrawing()
+		public static void HandleDrawing()
 		{
 			var currentMap = Find.CurrentMap;
 
@@ -75,7 +75,7 @@ namespace RangeFinder
 				{
 					var observed = observedPawns.FirstOrDefault(c => c.pawn == pawn);
 					if (observed == null)
-						observedPawns.Add(new ObservedPawn(pawn, locked));
+						_ = observedPawns.Add(new ObservedPawn(pawn, locked));
 					else
 						observedPawns.DoIf(c => c.pawn == pawn, c => c.locked = locked);
 				}
@@ -84,7 +84,7 @@ namespace RangeFinder
 				{
 					var observed = observedTargetSearchers.FirstOrDefault(c => c.targetSearcher == targetSearcher);
 					if (observed == null)
-						observedTargetSearchers.Add(new ObservedTargetSearcher(targetSearcher, locked));
+						_ = observedTargetSearchers.Add(new ObservedTargetSearcher(targetSearcher, locked));
 					else
 						observedTargetSearchers.DoIf(c => c.targetSearcher == targetSearcher, c => c.locked = locked);
 				}
@@ -100,14 +100,14 @@ namespace RangeFinder
 				{
 					var observed = observedPawns.FirstOrDefault(c => c.pawn == pawn);
 					if (observed != null && observed.locked == false)
-						observedPawns.RemoveWhere(c => c.pawn == pawn);
+						_ = observedPawns.RemoveWhere(c => c.pawn == pawn);
 				}
 
 				foreach (var targetSearcher in Tools.GetSelectedTargetSearchers())
 				{
 					var observed = observedTargetSearchers.FirstOrDefault(c => c.targetSearcher == targetSearcher);
 					if (observed != null && observed.locked == false)
-						observedTargetSearchers.RemoveWhere(c => c.targetSearcher == targetSearcher);
+						_ = observedTargetSearchers.RemoveWhere(c => c.targetSearcher == targetSearcher);
 				}
 			}
 		}

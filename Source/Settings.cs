@@ -22,7 +22,7 @@ namespace RangeFinder
 			Scribe_Values.Look(ref showWeaponRangeKey, "showWeaponRangeKey", RangeFinderModKey.Ctrl, true);
 		}
 
-		public void DoWindowContents(Rect canvas)
+		public static void DoWindowContents(Rect canvas)
 		{
 			var list = new Listing_Standard { ColumnWidth = canvas.width / 2 };
 			list.Begin(canvas);

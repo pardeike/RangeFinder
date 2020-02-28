@@ -41,8 +41,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.0.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lib.Harmony.2.0.0.5\lib\net35\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.0.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.2.0.0.7\lib\net472\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -53,6 +53,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
     <Reference Include="System.XML" />
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
@@ -141,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrossPromotion.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ModCounter.cs" />
     <Compile Include="ObservedThings.cs" />
     <Compile Include="Controller.cs" />
@@ -154,21 +156,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>ModBuilder -v AssemblyVersion -file "$(TargetPath)" -save "$(ProjectName)-version"
-ModBuilder -v XMLPut -file "$(SolutionDir)About\Manifest.xml" -xpath /Manifest/version -value "{{$(ProjectName)-version}}"
-ModBuilder -v XMLPut -file "$(SolutionDir)About\ModSync.xml" -xpath /ModSyncNinjaData/Version -value "{{$(ProjectName)-version}}"
+    <PostBuildEvent>ModBuilder AssemblyVersion -file "$(TargetPath)" -save "$(ProjectName)-version"
+ModBuilder XMLPut -file "$(SolutionDir)About\Manifest.xml" -xpath /Manifest/version -value "{{$(ProjectName)-version}}"
+ModBuilder XMLPut -file "$(SolutionDir)About\ModSync.xml" -xpath /ModSyncNinjaData/Version -value "{{$(ProjectName)-version}}"
 "$(ProjectDir)Install.bat" $(ConfigurationName) "$(ProjectDir)" "$(ProjectName)" "About Assemblies Languages v1.1" "LoadFolders.xml"</PostBuildEvent>
   </PropertyGroup>
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties BuildVersion_ReplaceNonNumerics="False" BuildVersion_UseUniversalClock="False" BuildVersion_UseGlobalSettings="False" BuildVersion_UpdateFileVersion="False" BuildVersion_UpdateAssemblyVersion="False" BuildVersion_BuildVersioningStyle="None.None.None.None" BuildVersion_StartDate="2000/1/1" BuildVersion_IncrementBeforeBuild="False" BuildVersion_ConfigurationName="Any" BuildVersion_DetectChanges="False" />
-    </VisualStudio>
-  </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
