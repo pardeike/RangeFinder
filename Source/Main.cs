@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using RimWorld;
-using System.Reflection;
 using UnityEngine;
 using Verse;
 
@@ -15,7 +14,7 @@ namespace RangeFinder
 			Settings = GetSettings<RangeFinderSettings>();
 
 			var harmony = new Harmony("net.pardeike.rimworld.mods.rangefinder");
-			harmony.PatchAll(Assembly.GetExecutingAssembly());
+			harmony.PatchAll();
 		}
 
 		public override void DoSettingsWindowContents(Rect inRect)
