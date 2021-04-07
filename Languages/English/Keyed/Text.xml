@@ -2,12 +2,24 @@
 <LanguageData>
 
 	<ShowWeaponRangeKeyTitle>Show Weapon Range Hotkey</ShowWeaponRangeKeyTitle>
-	<ShowWeaponRangeKeyExplained>To show the weapon range, select the colonist, then press this hotkey. If you double-press the key the range will be shown until you press the key again.</ShowWeaponRangeKeyExplained>
+	<ShowWeaponRangeKeyExplained>To show the weapon range, select the pawn, then press this hotkey. If you double-press the key the range will be shown until you press the key again.</ShowWeaponRangeKeyExplained>
 
-	<RangeFinderModKeyOptionNone>Disabled</RangeFinderModKeyOptionNone>
-	<RangeFinderModKeyOptionAlt>Alt</RangeFinderModKeyOptionAlt>
-	<RangeFinderModKeyOptionCtrl>Ctrl</RangeFinderModKeyOptionCtrl>
-	<RangeFinderModKeyOptionShift>Shift</RangeFinderModKeyOptionShift>
-	<RangeFinderModKeyOptionMeta>Win/Cmd</RangeFinderModKeyOptionMeta>
+	<ShowRangeAtMouseKeyTitle>Use Mouse Position Hotkey</ShowRangeAtMouseKeyTitle>
+	<ShowRangeAtMouseKeyExplained>Hold down this key to show the range from the current mouse position instead of the pawns position.</ShowRangeAtMouseKeyExplained>
+
+	<UseColorCodingTitle>Use Color Coding</UseColorCodingTitle>
+	<UseColorCodingExplained>When turned on this gives each range circle a distinct color and marks the pawn with the same color.</UseColorCodingExplained>
+
+	<MaxRangeTitle>Maximum Range To Show</MaxRangeTitle>
+	<MaxRangeExplained>RimWorld has its own maximum cell count for rendering outline. Setting this value too high results in errors.</MaxRangeExplained>
+
+	<ModifierKeyOptionNone>Disabled</ModifierKeyOptionNone>
+	<ModifierKeyOptionAlt>Alt</ModifierKeyOptionAlt>
+	<ModifierKeyOptionCtrl>Ctrl</ModifierKeyOptionCtrl>
+	<ModifierKeyOptionShift>Shift</ModifierKeyOptionShift>
+	<ModifierKeyOptionMeta>Win/Cmd</ModifierKeyOptionMeta>
+
+	<BooleanKeyOptionNo>No</BooleanKeyOptionNo>
+	<BooleanKeyOptionYes>Yes</BooleanKeyOptionYes>
 
 </LanguageData>

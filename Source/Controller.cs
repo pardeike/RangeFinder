@@ -11,6 +11,28 @@ namespace RangeFinder
 		public static HashSet<ObservedPawn> observedPawns = new HashSet<ObservedPawn>();
 		public static HashSet<ObservedTargetSearcher> observedTargetSearchers = new HashSet<ObservedTargetSearcher>();
 
+		public static Color GetColor(int n) => colors[n % colors.Length];
+		public static Color[] colors = new[]
+		{
+			Color.red,
+			Color.green,
+			Color.blue,
+			Color.yellow,
+			Color.cyan,
+			Color.magenta
+		};
+
+		public static SimpleColor GetSimpleColor(int n) => simpleColors[n % simpleColors.Length];
+		public static SimpleColor[] simpleColors = new[]
+		{
+			SimpleColor.Red,
+			SimpleColor.Green,
+			SimpleColor.Blue,
+			SimpleColor.Yellow,
+			SimpleColor.Cyan,
+			SimpleColor.Magenta
+		};
+
 		public static Controller controller;
 		public static Controller Instance()
 		{
@@ -27,32 +49,61 @@ namespace RangeFinder
 		public static void HandleDrawing()
 		{
 			var currentMap = Find.CurrentMap;
+			var colorIndex = 0;
 
-			observedPawns
+			var pawns = observedPawns
 				.Select(observed => observed.pawn)
 				.Where(pawn => pawn.Map == currentMap && pawn.Spawned && pawn.Dead == false && pawn.Downed == false)
-				.Do(pawn =>
+				.ToHashSet();
+
+			pawns.Do(pawn =>
 				{
 					var verb = pawn.equipment?.PrimaryEq?.PrimaryVerb;
 					if (verb != null && verb.verbProps.IsMeleeAttack == false)
 					{
 						var range = verb.verbProps.range;
-						if (range < 90f)
-							GenDraw.DrawRadiusRing(pawn.Position, range);
+						if (range > 0 && range < RangeFinder.Settings.maxRange)
+						{
+							var color = RangeFinder.Settings.useColorCoding == BooleanKey.Yes ? GetColor(colorIndex) : Color.white;
+							var lineColor = GetSimpleColor(colorIndex++);
+
+							var pos = RangeFinder.Settings.showRangeAtMouseKey.IsModKeyHeld() ? UI.MouseCell() : pawn.Position;
+							GenDraw.DrawRadiusRing(pos, range, color);
+
+							if (RangeFinder.Settings.useColorCoding == BooleanKey.Yes)
+							{
+								GenDraw.DrawCircleOutline(pawn.DrawPos, 0.75f, lineColor);
+								GenDraw.DrawCircleOutline(pawn.DrawPos, 0.75f, lineColor);
+							}
+						}
 					}
 				});
 
 			observedTargetSearchers
 				.Select(observed => observed.targetSearcher)
-				.Where(targetSearcher => targetSearcher.Thing != null && targetSearcher.Thing.Map == currentMap && targetSearcher.Thing.Spawned)
+				.Where(targetSearcher => targetSearcher.Thing != null && targetSearcher.Thing.Map == currentMap && targetSearcher.Thing.Spawned && pawns.Contains(targetSearcher.Thing) == false)
 				.Do(targetSearcher =>
 				{
 					var verb = targetSearcher.CurrentEffectiveVerb;
 					if (verb != null)
 					{
 						var range = verb.verbProps.range;
-						if (range < 90f)
-							GenDraw.DrawRadiusRing(targetSearcher.Thing.Position, range);
+						if (range > 0 && range < RangeFinder.Settings.maxRange)
+						{
+							var color = RangeFinder.Settings.useColorCoding == BooleanKey.Yes ? GetColor(colorIndex) : Color.white;
+							var lineColor = GetSimpleColor(colorIndex++);
+
+							var pos = RangeFinder.Settings.showRangeAtMouseKey.IsModKeyHeld() ? UI.MouseCell() : targetSearcher.Thing.Position;
+							GenDraw.DrawRadiusRing(pos, range, color);
+
+							if (RangeFinder.Settings.useColorCoding == BooleanKey.Yes)
+							{
+								var rect = targetSearcher.Thing.OccupiedRect();
+								var size = Mathf.Max(rect.Width, rect.Height) / 2f + 0.25f;
+								GenDraw.DrawCircleOutline(targetSearcher.Thing.DrawPos, size, lineColor);
+								GenDraw.DrawCircleOutline(targetSearcher.Thing.DrawPos, size, lineColor);
+							}
+						}
 					}
 				});
 		}
@@ -61,12 +112,12 @@ namespace RangeFinder
 		private float lastPressedTime;
 		public void HandleEvents()
 		{
-			if (Tools.IsModKeyDown())
+			if (RangeFinder.Settings.showWeaponRangeKey.IsModKeyDown())
 			{
 				if (isPressed)
 					return;
-
 				isPressed = true;
+
 				var now = Time.realtimeSinceStartup;
 				var locked = now - lastPressedTime <= 0.25f;
 				lastPressedTime = now;
@@ -90,7 +141,7 @@ namespace RangeFinder
 				}
 			}
 
-			if (Tools.IsModKeyUp())
+			if (RangeFinder.Settings.showWeaponRangeKey.IsModKeyUp())
 			{
 				if (isPressed == false)
 					return;
