@@ -30,8 +30,7 @@ namespace RangeFinder
 
 	// initialize on map load
 	//
-	[HarmonyPatch(typeof(Map))]
-	[HarmonyPatch("FinalizeLoading")]
+	[HarmonyPatch(typeof(Map), nameof(Map.FinalizeLoading))]
 	static class Map_FinalizeLoading_Patch
 	{
 		public static void Postfix()
@@ -43,8 +42,7 @@ namespace RangeFinder
 
 	// handle events early
 	//
-	[HarmonyPatch(typeof(MainTabsRoot))]
-	[HarmonyPatch("HandleLowPriorityShortcuts")]
+	[HarmonyPatch(typeof(MainTabsRoot), nameof(MainTabsRoot.HandleLowPriorityShortcuts))]
 	static class MainTabsRoot_HandleLowPriorityShortcuts_Patch
 	{
 		public static void Postfix()
@@ -55,8 +53,7 @@ namespace RangeFinder
 
 	// handle drawing
 	//
-	[HarmonyPatch(typeof(SelectionDrawer))]
-	[HarmonyPatch("DrawSelectionOverlays")]
+	[HarmonyPatch(typeof(SelectionDrawer), nameof(SelectionDrawer.DrawSelectionOverlays))]
 	static class SelectionDrawer_DrawSelectionOverlays_Patch
 	{
 		public static void Prefix()

@@ -11,56 +11,44 @@ namespace RangeFinder
 	{
 		public static bool IsModKeyHeld(this ModifierKey key)
 		{
-			switch (key)
+			return key switch
 			{
-				case ModifierKey.Alt:
-					return Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
-				case ModifierKey.Ctrl:
-					return Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
-				case ModifierKey.Shift:
-					return Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
-				case ModifierKey.Meta:
-					return Input.GetKey(KeyCode.LeftWindows) || Input.GetKey(KeyCode.RightWindows)
-						|| Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.RightCommand)
-						|| Input.GetKey(KeyCode.LeftApple) || Input.GetKey(KeyCode.RightApple);
-			}
-			return false;
+				ModifierKey.Alt => Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt),
+				ModifierKey.Ctrl => Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl),
+				ModifierKey.Shift => Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift),
+				ModifierKey.Meta => Input.GetKey(KeyCode.LeftWindows) || Input.GetKey(KeyCode.RightWindows)
+|| Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.RightCommand)
+|| Input.GetKey(KeyCode.LeftApple) || Input.GetKey(KeyCode.RightApple),
+				_ => false,
+			};
 		}
 
 		public static bool IsModKeyDown(this ModifierKey key)
 		{
-			switch (key)
+			return key switch
 			{
-				case ModifierKey.Alt:
-					return Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt);
-				case ModifierKey.Ctrl:
-					return Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl);
-				case ModifierKey.Shift:
-					return Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift);
-				case ModifierKey.Meta:
-					return Input.GetKeyDown(KeyCode.LeftWindows) || Input.GetKeyDown(KeyCode.RightWindows)
-						|| Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.RightCommand)
-						|| Input.GetKeyDown(KeyCode.LeftApple) || Input.GetKeyDown(KeyCode.RightApple);
-			}
-			return false;
+				ModifierKey.Alt => Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt),
+				ModifierKey.Ctrl => Input.GetKeyDown(KeyCode.LeftControl) || Input.GetKeyDown(KeyCode.RightControl),
+				ModifierKey.Shift => Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift),
+				ModifierKey.Meta => Input.GetKeyDown(KeyCode.LeftWindows) || Input.GetKeyDown(KeyCode.RightWindows)
+|| Input.GetKeyDown(KeyCode.LeftCommand) || Input.GetKeyDown(KeyCode.RightCommand)
+|| Input.GetKeyDown(KeyCode.LeftApple) || Input.GetKeyDown(KeyCode.RightApple),
+				_ => false,
+			};
 		}
 
 		public static bool IsModKeyUp(this ModifierKey key)
 		{
-			switch (key)
+			return key switch
 			{
-				case ModifierKey.Alt:
-					return Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt);
-				case ModifierKey.Ctrl:
-					return Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.RightControl);
-				case ModifierKey.Shift:
-					return Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift);
-				case ModifierKey.Meta:
-					return Input.GetKeyUp(KeyCode.LeftWindows) || Input.GetKeyUp(KeyCode.RightWindows)
-						|| Input.GetKeyUp(KeyCode.LeftCommand) || Input.GetKeyUp(KeyCode.RightCommand)
-						|| Input.GetKeyUp(KeyCode.LeftApple) || Input.GetKeyUp(KeyCode.RightApple);
-			}
-			return false;
+				ModifierKey.Alt => Input.GetKeyUp(KeyCode.LeftAlt) || Input.GetKeyUp(KeyCode.RightAlt),
+				ModifierKey.Ctrl => Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.RightControl),
+				ModifierKey.Shift => Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift),
+				ModifierKey.Meta => Input.GetKeyUp(KeyCode.LeftWindows) || Input.GetKeyUp(KeyCode.RightWindows)
+|| Input.GetKeyUp(KeyCode.LeftCommand) || Input.GetKeyUp(KeyCode.RightCommand)
+|| Input.GetKeyUp(KeyCode.LeftApple) || Input.GetKeyUp(KeyCode.RightApple),
+				_ => false,
+			};
 		}
 
 		public static List<Pawn> GetSelectedPawns()
