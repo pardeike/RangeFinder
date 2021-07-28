@@ -36,7 +36,6 @@ namespace RangeFinder
 		public static void Postfix()
 		{
 			Controller.Reset();
-			ModCounter.Trigger();
 		}
 	}
 
