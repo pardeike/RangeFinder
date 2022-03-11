@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using Brrainz;
+using HarmonyLib;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -15,6 +16,8 @@ namespace RangeFinder
 
 			var harmony = new Harmony("net.pardeike.rimworld.mods.rangefinder");
 			harmony.PatchAll();
+
+			CrossPromotion.Install(76561197973010050);
 		}
 
 		public override void DoSettingsWindowContents(Rect inRect)
