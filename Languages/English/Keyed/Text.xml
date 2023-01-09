@@ -22,4 +22,8 @@
 	<BooleanKeyOptionNo>No</BooleanKeyOptionNo>
 	<BooleanKeyOptionYes>Yes</BooleanKeyOptionYes>
 
+	<CustomColors>Custom Colors</CustomColors>
+	<AddColor>Add Color</AddColor>
+	<AddingCustomColors>When you add custom colors they will replace all existing colors and are assigned in the order listed here.</AddingCustomColors>
+
 </LanguageData>

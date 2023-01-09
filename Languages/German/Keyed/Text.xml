@@ -22,4 +22,8 @@
 	<BooleanKeyOptionNo>Nein</BooleanKeyOptionNo>
 	<BooleanKeyOptionYes>Ja</BooleanKeyOptionYes>
 
+	<CustomColors>Eigene Farben</CustomColors>
+	<AddColor>Neue Farbe</AddColor>
+	<AddingCustomColors>Wenn Sie benutzerdefinierte Farben hinzufügen, ersetzen diese alle vorhandenen Farben und werden in der hier aufgeführten Reihenfolge zugewiesen.</AddingCustomColors>
+
 </LanguageData>
