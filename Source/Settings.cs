@@ -26,8 +26,8 @@ namespace RangeFinder
 		public ModifierKey showWeaponRangeKey = ModifierKey.Ctrl;
 		public BooleanKey useColorCoding = BooleanKey.Yes;
 		public int maxRange = 96;
-		public List<Color> customColors = new List<Color>();
-		public List<Material> customColorMaterials = new List<Material>();
+		public List<Color> customColors = [];
+		public List<Material> customColorMaterials = [];
 
 		public override void ExposeData()
 		{
@@ -37,7 +37,7 @@ namespace RangeFinder
 			Scribe_Values.Look(ref useColorCoding, "useColorCoding", BooleanKey.Yes, true);
 			Scribe_Values.Look(ref maxRange, "maxRange", 96, true);
 			Scribe_Collections.Look(ref customColors, "customColors");
-			customColors ??= new List<Color>();
+			customColors ??= [];
 			customColorMaterials = customColors.Select(color => (Material)null).ToList();
 		}
 

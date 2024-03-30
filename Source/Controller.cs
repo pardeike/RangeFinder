@@ -9,8 +9,8 @@ namespace RangeFinder
 	[StaticConstructorOnStartup]
 	public class Controller
 	{
-		public static List<ObservedPawn> observedPawns = new List<ObservedPawn>();
-		public static List<ObservedTargetSearcher> observedTargetSearchers = new List<ObservedTargetSearcher>();
+		public static List<ObservedPawn> observedPawns = [];
+		public static List<ObservedTargetSearcher> observedTargetSearchers = [];
 
 		public static Color GetColor(int n)
 		{
@@ -32,24 +32,24 @@ namespace RangeFinder
 
 		public static Material whiteMaterial = MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, Color.white);
 
-		public static Color[] colors = new[]
-		{
+		public static Color[] colors =
+		[
 			Color.red,
 			Color.green,
 			Color.blue,
 			Color.yellow,
 			Color.cyan,
 			Color.magenta
-		};
-		public static Material[] materials = new[]
-		{
+		];
+		public static Material[] materials =
+		[
 			MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, Color.red),
 			MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, Color.green),
 			MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, Color.blue),
 			MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, Color.yellow),
 			MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, Color.cyan),
 			MaterialPool.MatFrom(GenDraw.LineTexPath, ShaderDatabase.Transparent, Color.magenta)
-		};
+		];
 
 		public static Controller controller;
 		public static Controller Instance()
@@ -60,8 +60,8 @@ namespace RangeFinder
 
 		public static void Reset()
 		{
-			observedPawns = new List<ObservedPawn>();
-			observedTargetSearchers = new List<ObservedTargetSearcher>();
+			observedPawns = [];
+			observedTargetSearchers = [];
 		}
 
 		public static void HandleDrawing()
