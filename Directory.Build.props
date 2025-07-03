@@ -4,7 +4,7 @@
 		<ModName>RangeFinder</ModName>
 		<ModFileName>RangeFinder</ModFileName>
 		<Repository>https://github.com/pardeike/RangeFinder</Repository>
-		<ModVersion>2.5.0.0</ModVersion>
+		<ModVersion>2.6.0.0</ModVersion>
 		<ProjectGuid>{5CB0B819-70C5-440A-827F-ACC98A0D2047}</ProjectGuid>
 	</PropertyGroup>
 
