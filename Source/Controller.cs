@@ -84,13 +84,13 @@ namespace RangeFinder
 					var verb = pawn.equipment?.PrimaryEq?.PrimaryVerb;
 					if (verb == null || verb.verbProps.IsMeleeAttack)
 						return false;
-					var range = verb.verbProps.range;
+					var range = verb.EffectiveRange;
 					return range > 0 && range < RangeFinder.Settings.maxRange;
 				})
 				.Do(pawn =>
 				{
 					var color = RangeFinder.Settings.useColorCoding == BooleanKey.Yes ? GetColor(++colorIndex) : Color.white;
-					GenDraw.DrawRadiusRing(pawn.Position, pawn.equipment.PrimaryEq.PrimaryVerb.verbProps.range, color);
+					GenDraw.DrawRadiusRing(pawn.Position, pawn.equipment.PrimaryEq.PrimaryVerb.EffectiveRange, color);
 					_ = pawnsWithRanges.Add(pawn);
 
 					if (RangeFinder.Settings.useColorCoding == BooleanKey.Yes)
@@ -110,7 +110,7 @@ namespace RangeFinder
 						var verb = pawn.equipment?.PrimaryEq?.PrimaryVerb;
 						if (verb == null || verb.verbProps.IsMeleeAttack)
 							return false;
-						var range = verb.verbProps.range;
+						var range = verb.EffectiveRange;
 						return range > 0 && range < RangeFinder.Settings.maxRange;
 					})
 					.Except(pawnsWithRanges);
@@ -125,7 +125,7 @@ namespace RangeFinder
 						.Do(pawn =>
 						{
 							var color = RangeFinder.Settings.useColorCoding == BooleanKey.Yes ? GetColor(++colorIndex) : Color.white;
-							GenDraw.DrawRadiusRing(mouseCell, pawn.equipment.PrimaryEq.PrimaryVerb.verbProps.range, color);
+							GenDraw.DrawRadiusRing(mouseCell, pawn.equipment.PrimaryEq.PrimaryVerb.EffectiveRange, color);
 
 							if (RangeFinder.Settings.useColorCoding == BooleanKey.Yes)
 							{
@@ -146,7 +146,7 @@ namespace RangeFinder
 					var verb = targetSearcher.CurrentEffectiveVerb;
 					if (verb != null)
 					{
-						var range = verb.verbProps.range;
+						var range = verb.EffectiveRange;
 						if (range > 0 && range < RangeFinder.Settings.maxRange)
 						{
 							var color = RangeFinder.Settings.useColorCoding == BooleanKey.Yes ? GetColor(++colorIndex) : Color.white;
