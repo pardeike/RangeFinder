@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<ShowWeaponRangeKeyTitle>Zeige Waffenreichweite Hotkey</ShowWeaponRangeKeyTitle>
+	<ShowWeaponRangeKeyExplained>Um die Waffenreichweite anzuzeigen, waehle eine Figur aus und drücke den Hotkey. Wird der Hotkey schnell zweimal hintereinander gedrückt, wird die Waffenreichweite dauerhaft angezeigt bis der Hotkey erneut gedrückt wird.</ShowWeaponRangeKeyExplained>
+
+	<ShowRangeAtMouseKeyTitle>Benutze Mausposition Hotkey</ShowRangeAtMouseKeyTitle>
+	<ShowRangeAtMouseKeyExplained>Halten Sie diese Taste gedrückt, um die Waffenreichweite von der aktuellen Mausposition anstelle der Figur anzuzeigen.</ShowRangeAtMouseKeyExplained>
+
+	<UseColorCodingTitle>Benutze Unterschiedliche Farben</UseColorCodingTitle>
+	<UseColorCodingExplained>Gibt jeder Reichweitenmarkierung eine eigene Farbe und markiert auch die Figur damit.</UseColorCodingExplained>
+
+	<MaxRangeTitle>Maximale Reichweite</MaxRangeTitle>
+	<MaxRangeExplained>RimWorld hat seine eigene maximale Anzahl Zellen mit der ein Umkreis gezeichnet wird. Das erhöhen dieses Wertes kann zu Fehlern führen.</MaxRangeExplained>
+
+	<ModifierKeyOptionNone>Disabled</ModifierKeyOptionNone>
+	<ModifierKeyOptionAlt>Alt</ModifierKeyOptionAlt>
+	<ModifierKeyOptionCtrl>Ctrl</ModifierKeyOptionCtrl>
+	<ModifierKeyOptionShift>Shift</ModifierKeyOptionShift>
+	<ModifierKeyOptionMeta>Win/Cmd</ModifierKeyOptionMeta>
+
+	<BooleanKeyOptionNo>Nein</BooleanKeyOptionNo>
+	<BooleanKeyOptionYes>Ja</BooleanKeyOptionYes>
+
+	<CustomColors>Eigene Farben</CustomColors>
+	<AddColor>Neue Farbe</AddColor>
+	<AddingCustomColors>Wenn Sie benutzerdefinierte Farben hinzufügen, ersetzen diese alle vorhandenen Farben und werden in der hier aufgeführten Reihenfolge zugewiesen.</AddingCustomColors>
+
+</LanguageData>
